@@ -50,7 +50,7 @@ nav{
     }
 }
 
-@media  (min-width: 320px) and (max-width: 480px)  { //media query for small devices 
+@media  (min-width: 320px) and (max-width: 760px)  { //media query for small devices 
     nav {
         div.burger{
             display: flex;
