@@ -1,0 +1,99 @@
+* { 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+nav{
+    display: flex;
+    flex-flow: row wrap;
+    min-height: 50px;
+    min-width: 300px;
+    background-color: aliceblue;
+    justify-content: space-between;
+    padding: 0 2em;
+    div.logo{
+        flex: 0 0 20%;
+        display: flex;
+        flex-flow:row wrap;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    div.navigation {
+        flex: 0 0 80%;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: flex-end;
+        ul {
+            display: flex;
+            flex-flow: row wrap;
+            list-style: none;
+            height: 100%;
+            justify-content: space-between;
+            align-items: center;
+            li {
+                margin-left: 2em ;
+            }
+        }
+    }
+    div.burger{
+        display: none;
+        flex-flow: column wrap;
+        justify-content: center;
+        align-items: flex-end;
+        span{
+            transition: all .2s;
+            width: 20px;
+            height: 2px;
+            background-color: black;
+            margin: .1em 0;
+        }
+    }
+}
+
+@media  (max-width: 640px) { //media query for small devices 
+    nav {
+        div.burger{
+            display: flex;
+            &.active{
+                span{
+                    &:nth-child(1){
+                        position: fixed;
+                        transform-origin: 50% 50%;
+                        transform: rotate(45deg)
+                    }
+                    &:nth-child(2){
+                        display: none;
+                    }
+                    &:nth-child(3){
+                        transform-origin: 50% 50%;
+                        transform: rotate(-45deg)
+                    }
+                    
+                }
+            }
+        }
+        div.navigation {
+            display: none;
+            &.show{
+                display: block;
+                position: fixed;
+                right: 2em;
+                top: 40px;
+                background-color: white;
+                border-radius: 0.3rem;
+                z-index: 10000;
+                box-shadow: 2px 2px 6px 2px rgba($color: #888888, $alpha: .3);
+                ul{
+                    flex-flow:column;
+                    justify-content: center;
+                    padding: 20px;
+                    li{
+                        padding: .3em;
+                        margin: auto;
+                    }
+                }
+            }
+        }
+    }
+
+}
